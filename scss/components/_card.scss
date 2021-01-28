@@ -1,0 +1,51 @@
+.card {
+    border: 1px solid $card-border-color;
+    height: 150px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px $card-shadow-color;
+    @include flexbox(row, space-around, center);
+    margin: 5px 0;
+    @media (min-width: $screen-md) {
+        margin: 0;
+    }
+}
+
+.img-container {
+    flex-basis: 40%;
+    text-align: center;
+}
+
+.info-container {
+    flex-basis: 60%;
+    padding: 10px;
+}
+
+.profile-pic {
+    height: 95%;
+    width: 95%;
+    max-height: 120px;
+    max-width: 120px;
+    border-radius: 50%;
+    @media (max-width: $screen-xs) {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+.employee-name {
+    font-weight: $font-weight-bold;
+    font-size: 1.2rem;
+}
+
+.email,
+.city {
+    font-weight: $font-weight-light;
+    color: $secondary-font-color;
+    margin: 8px 0;
+    font-size: 1rem;
+    @media (max-width: 320px) {
+        margin: 5px 0;
+        font-size: 0.9rem;
+    }
+}

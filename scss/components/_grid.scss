@@ -1,0 +1,13 @@
+.employees-container {
+    margin: 50px 0;
+    max-width: 1036px;
+    @include flexbox(column, center, center);
+    @media (min-width: $screen-md) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 10px;
+    }
+    @media (min-width:$screen-lg) {
+        margin: 50px auto;
+    }
+}

@@ -1,0 +1,15 @@
+//Font Import
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500&display=swap');
+body {
+    font-family: $font-family-stack;
+}
+
+h1 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+p {
+    font-size: 0.9rem;
+}

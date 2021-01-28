@@ -3,3 +3,21 @@
 // =============================================
 @import 'normalize';
 @import 'typography';
+
+/*General Setup*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+main {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    padding: 10px;
+}
