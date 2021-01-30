@@ -401,6 +401,7 @@ main {
   justify-content: space-around;
   align-items: center;
   margin: 5px 0;
+  padding: 5px;
 }
 @media (min-width: 768px) {
   .card {
@@ -409,26 +410,24 @@ main {
 }
 
 .img-container {
-  flex-basis: 40%;
+  width: 35%;
   text-align: center;
 }
 
 .info-container {
-  flex-basis: 60%;
-  padding: 10px;
+  width: 65%;
+  overflow-x: auto;
 }
 
 .profile-pic {
-  height: 95%;
-  width: 95%;
-  max-height: 120px;
-  max-width: 120px;
+  height: 75%;
+  width: 75%;
   border-radius: 50%;
 }
 @media (max-width: 320px) {
   .profile-pic {
-    height: 100px;
-    width: 100px;
+    max-height: 75px;
+    max-width: 75px;
   }
 }
 
