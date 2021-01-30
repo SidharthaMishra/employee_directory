@@ -416,6 +416,12 @@ main {
     margin: 0;
   }
 }
+.card:hover {
+  cursor: pointer;
+  transform: translate(0, -3px);
+  box-shadow: 0 4px 4px #e8e8e8;
+  transition: all 0.2s ease;
+}
 
 .img-container {
   width: 40%;
