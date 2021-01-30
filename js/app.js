@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     "use strict";
 
+    const cardsContainer = document.querySelector(".employees-container");
+    const employeeDataURL = "https://randomuser.me/api/?results=12&inc=name,email,city,location,cell,dob,picture&nat=us,gb,ca,fr,au,br,nz,es&noinfo";
+    let employees = [];
+
     function getData(url) {
         return fetch(url)
             .then(response => {
@@ -33,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return card;
     }
 
-    const cardsContainer = document.querySelector(".employees-container");
-
     function displayEmployeeData(employees) {
 
         let employeeCards = employees.reduce((acc, employee) => {
@@ -43,8 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         cardsContainer.innerHTML = employeeCards;
     }
-    const employeeDataURL = "https://randomuser.me/api/?results=12&inc=name,email,city,location,cell,dob,picture&nat=us,gb,ca,fr,au,br,nz,es&noinfo";
-    let employees = [];
+
     getData(employeeDataURL)
         .then(employeesData => employeesData.results
             .forEach(employee => {
