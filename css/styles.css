@@ -398,6 +398,37 @@ main {
   }
 }
 
+.search {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+@media (min-width: 1024px) {
+  .search {
+    text-align: right;
+  }
+}
+
+#search-user {
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  border: 2px solid #e6e6e6;
+  padding: 3px;
+  font-family: "Raleway", sans-serif;
+}
+@media (min-width: 768px) {
+  #search-user {
+    width: 65%;
+  }
+}
+@media (min-width: 1024px) {
+  #search-user {
+    width: 25%;
+  }
+}
+
 .card {
   border: 1px solid #e6e6e6;
   height: 150px;
