@@ -10,4 +10,8 @@
     @media (min-width:$screen-lg) {
         margin: 50px auto;
     }
+    @media (min-width:$screen-xl) {
+        grid-gap: 20px;
+        align-self: center;
+    }
 }

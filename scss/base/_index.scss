@@ -15,9 +15,12 @@
 body,
 main {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 main {
     padding: 10px;
+    @media (min-width: $screen-xl) {
+        margin-top: 25px;
+    }
 }

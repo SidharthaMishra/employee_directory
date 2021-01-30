@@ -4,7 +4,7 @@
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 2px 2px $card-shadow-color;
-    @include flexbox(row, space-around, center);
+    @include flexbox(row, space-between, center);
     margin: 5px 0;
     @media (min-width: $screen-md) {
         margin: 0;
@@ -13,12 +13,14 @@
 }
 
 .img-container {
-    width: 35%;
+    width: 40%;
+    height: 100%;
     text-align: center;
+    @include flexbox(row, center, center);
 }
 
 .info-container {
-    width: 65%;
+    width: 60%;
     overflow-x: auto;
 }
 
@@ -45,6 +47,6 @@
     font-size: 0.9rem;
     @media (max-width: 320px) {
         margin: 5px 0;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 }
