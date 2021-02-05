@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
     "use strict";
 
+    //Vars
     const cardsContainer = document.querySelector(".employees-container");
     const employeeDataURL = "https://randomuser.me/api/?results=12&inc=name,email,city,location,cell,dob,picture&nat=us,gb,ca,fr,au,br,nz,es&noinfo";
     let employees = [];
+    const search = document.querySelector("#search-user");
 
+    //Functions
     function getData(url) {
         return fetch(url)
             .then(response => {
@@ -46,6 +49,22 @@ document.addEventListener("DOMContentLoaded", function() {
         cardsContainer.innerHTML = employeeCards;
     }
 
+    function searchUser(name) {
+        const employeeCards = cardsContainer.querySelectorAll(".card");
+        if (employeeCards.length > 0) {
+            //Convert NodeList=>Array then call forEach
+            [...employeeCards].forEach(card => {
+                if (!(card.children[1].children[0].innerText.toLowerCase().includes(name.toLowerCase()))) {
+                    card.style.display = "none";
+                } else {
+                    card.style.display = "";
+                }
+            });
+        }
+    }
+
+    //---------------//
+
     getData(employeeDataURL)
         .then(employeesData => employeesData.results
             .forEach(employee => {
@@ -53,4 +72,9 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         )
         .then(() => { displayEmployeeData(employees) });
+
+    search.addEventListener("input", function(e) {
+        searchUser(e.target.value);
+    });
+
 });
