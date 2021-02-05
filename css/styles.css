@@ -348,10 +348,6 @@ h1 {
   text-align: center;
 }
 
-p {
-  font-size: 0.9rem;
-}
-
 /*General Setup*/
 * {
   box-sizing: border-box;
@@ -435,6 +431,7 @@ main {
   border: 1px solid #e6e6e6;
   height: 150px;
   width: 100%;
+  max-width: 450px;
   border-radius: 5px;
   box-shadow: 0 2px 2px #e8e8e8;
   display: flex;
