@@ -12,7 +12,7 @@ https://sidharthamishra.github.io/employee_directory/
 ## Technologies Used
 
 - HTML
-- CSS
+- Sass/CSS
 - JS
 - Random User Generator API (randomuser.me)
 - JSON
