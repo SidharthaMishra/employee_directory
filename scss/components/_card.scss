@@ -2,6 +2,7 @@
     border: 1px solid $card-border-color;
     height: 150px;
     width: 100%;
+    max-width: 450px;
     border-radius: 5px;
     box-shadow: 0 2px 2px $card-shadow-color;
     @include flexbox(row, space-between, center);
