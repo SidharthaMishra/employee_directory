@@ -348,10 +348,6 @@ h1 {
   text-align: center;
 }
 
-p {
-  font-size: 0.9rem;
-}
-
 /*General Setup*/
 * {
   box-sizing: border-box;
@@ -435,6 +431,7 @@ main {
   border: 1px solid #e6e6e6;
   height: 150px;
   width: 100%;
+  max-width: 450px;
   border-radius: 5px;
   box-shadow: 0 2px 2px #e8e8e8;
   display: flex;
@@ -501,6 +498,99 @@ main {
     margin: 5px 0;
     font-size: 0.8rem;
   }
+}
+
+.modal {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.95);
+  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailed-card {
+  background-color: #fff;
+  max-width: 450px;
+  height: 80%;
+  width: 90%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailed-info-container {
+  height: 100%;
+  width: 100%;
+}
+.detailed-info-container .row:first-of-type {
+  text-align: right;
+  height: 5%;
+}
+.detailed-info-container .info-container {
+  text-align: center;
+  width: 100%;
+}
+.detailed-info-container .employee-profile {
+  height: 95%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stetch;
+}
+.detailed-info-container .basic-info,
+.detailed-info-container .detailed-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detailed-info-container .basic-info {
+  height: 60%;
+}
+.detailed-info-container .detailed-info {
+  height: 40%;
+}
+.detailed-info-container .profile-pic {
+  width: 75%;
+  height: 75%;
+}
+.detailed-info-container .email,
+.detailed-info-container .city {
+  font-size: 1rem;
+  margin: 15px auto;
+}
+.detailed-info-container .img-container {
+  height: 50%;
+}
+.detailed-info-container .info-container {
+  height: 50%;
+}
+.detailed-info-container hr {
+  width: 80%;
+  margin: 0 auto;
+}
+.detailed-info-container .detailed-info {
+  color: #888;
+}
+.detailed-info-container .employee-cell,
+.detailed-info-container .employee-address,
+.detailed-info-container .birthday {
+  margin: 10px auto;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
