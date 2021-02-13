@@ -520,77 +520,128 @@ main {
   max-width: 450px;
   height: 80%;
   width: 90%;
-  padding: 5px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 375px) {
+  .detailed-card {
+    padding: 25px;
+  }
+}
 
 .detailed-info-container {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-.detailed-info-container .row:first-of-type {
+
+.row:first-of-type {
   text-align: right;
+  width: 100%;
   height: 5%;
 }
-.detailed-info-container .info-container {
-  text-align: center;
-  width: 100%;
-}
-.detailed-info-container .employee-profile {
+
+.employee-profile {
   height: 95%;
+  width: 100%;
   padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: stetch;
+  align-items: center;
 }
-.detailed-info-container .basic-info,
-.detailed-info-container .detailed-info {
+
+.basic-info,
+.detailed-info {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.detailed-info-container .basic-info {
+
+.basic-info {
   height: 60%;
 }
-.detailed-info-container .detailed-info {
+
+.detailed-info {
   height: 40%;
 }
-.detailed-info-container .profile-pic {
-  width: 75%;
-  height: 75%;
+
+.info-container {
+  text-align: center;
+  width: 100%;
+  height: 50%;
 }
-.detailed-info-container .email,
-.detailed-info-container .city {
-  font-size: 1rem;
+
+.profile-pic {
+  margin: 20px;
+  display: block;
+  width: 125px;
+  height: 125px;
+}
+
+.email,
+.city,
+.employee-cell,
+.employee-address,
+.birthday {
+  font-size: 0.9rem;
+}
+
+.email,
+.city {
   margin: 15px auto;
 }
-.detailed-info-container .img-container {
-  height: 50%;
-}
-.detailed-info-container .info-container {
-  height: 50%;
-}
-.detailed-info-container hr {
+
+hr {
   width: 80%;
   margin: 0 auto;
 }
-.detailed-info-container .detailed-info {
+
+.detailed-info {
   color: #888;
 }
-.detailed-info-container .employee-cell,
-.detailed-info-container .employee-address,
-.detailed-info-container .birthday {
+
+.employee-cell,
+.employee-address,
+.birthday {
   margin: 10px auto;
 }
 
 .hidden {
   display: none;
+}
+
+@media (min-height: 812px) {
+  .employee-profile {
+    height: 80%;
+    margin-top: 15%;
+  }
+}
+@media (min-width: 375px) {
+  .detailed-info-container {
+    height: 100%;
+  }
+
+  .row:first-of-type {
+    justify-self: flex-start;
+    height: 5%;
+  }
+
+  hr {
+    margin-top: 18px;
+  }
+
+  .info-container {
+    align-self: flex-start;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
