@@ -646,7 +646,7 @@ hr {
 }
 @media (min-width: 768px) {
   .detailed-card {
-    height: 60%;
+    height: 90%;
   }
 
   .employee-profile {
@@ -660,6 +660,16 @@ hr {
 .employee-address,
 .birthday {
     font-size: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .detailed-card {
+    width: 45%;
+  }
+}
+@media (min-width: 1440px) {
+  .detailed-card {
+    max-height: 65%;
   }
 }
 
