@@ -580,7 +580,8 @@ main {
   height: 50%;
 }
 
-.profile-pic {
+.employee-profile-pic {
+  border-radius: 50%;
   margin: 20px;
   display: block;
   width: 125px;
@@ -641,6 +642,24 @@ hr {
 
   .info-container {
     align-self: flex-start;
+  }
+}
+@media (min-width: 768px) {
+  .detailed-card {
+    height: 60%;
+  }
+
+  .employee-profile {
+    height: 100%;
+    margin: 5%;
+  }
+
+  .email,
+.city,
+.employee-cell,
+.employee-address,
+.birthday {
+    font-size: 1rem;
   }
 }
 
