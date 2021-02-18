@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", function() {
     function generateEmployeeCard(e) {
         let card = `
                 <div class="card">
-                    <div class="img-container">
+                    <div class="card-content">
                         <img src="${e.picture.large}" alt="" class="profile-pic">
-                    </div>
-                    <div class="info-container">
-                        <div class="employee-name">${e.name.first} ${e.name.last}</div>
-                        <div class="employee-contact">
-                            <p class="email">${e.email}</p>
-                            <p class="city">${e.location.city}</p>
+                        <div class="info-container">
+                            <div class="employee-name">${e.name.first} ${e.name.last}</div>
+                            <div class="employee-contact">
+                                <p class="email">${e.email}</p>
+                                <p class="city">${e.location.city}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,5 +76,15 @@ document.addEventListener("DOMContentLoaded", function() {
     search.addEventListener("input", function(e) {
         searchUser(e.target.value);
     });
+
+    /*
+        // const modal = document.querySelector(".modal");
+
+    cardsContainer.addEventListener("click", function(e) {
+        // modal.style.display = "block";
+        modal.classList.remove("hidden");
+        
+
+    });*/
 
 });
