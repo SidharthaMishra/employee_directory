@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const search = document.querySelector("#search-user");
     const modal = document.querySelector(".modal");
     const closeButton = modal.querySelector(".close");
-
+    let cardIndex = 0;
     //Functions
     function getData(url) {
         return fetch(url)
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         //Obtain the Card Element that was Clicked and get its index
         const cardClicked = employeeName.parentNode.parentNode.parentNode;
-        const cardIndex = Array.from(cardsContainer.children).indexOf(cardClicked);
+        cardIndex = Array.from(cardsContainer.children).indexOf(cardClicked);
 
         showModal(employees[cardIndex]);
     });
@@ -143,8 +143,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.addEventListener("keyup", function(e) {
-        if (!modal.classList.contains("hidden") && e.key === 'Escape') {
-            hideModal();
+        if (!modal.classList.contains("hidden")) {
+            if (e.key === 'Escape') {
+                hideModal();
+            } else if (e.key === 'ArrowRight') {
+                hideModal();
+                if (cardIndex < employees.length - 1) {
+                    cardIndex++;
+                } else {
+                    cardIndex = 0;
+                }
+                showModal(employees[cardIndex]);
+            } else if (e.key === 'ArrowLeft') {
+                hideModal();
+                if (cardIndex <= 0) {
+                    cardIndex = employees.length - 1;
+                } else {
+                    cardIndex--;
+                }
+                showModal(employees[cardIndex]);
+            }
         }
     });
 
