@@ -71,20 +71,75 @@ document.addEventListener("DOMContentLoaded", function() {
                 employees.push(employee);
             })
         )
-        .then(() => { displayEmployeeData(employees) });
+        .then(() => { displayEmployeeData(employees); });
 
     search.addEventListener("input", function(e) {
         searchUser(e.target.value);
     });
 
-    /*
-        // const modal = document.querySelector(".modal");
+
+    const modal = document.querySelector(".modal");
+    const closeButton = modal.querySelector(".close");
+
+    function hideModal() {
+        let employeeProfile = modal.querySelector(".employee-profile");
+        employeeProfile.innerHTML = ` `;
+        modal.classList.add("hidden");
+    }
+
+    function showModal(e) {
+        let employeeProfile = modal.querySelector(".employee-profile");
+        const modalContent = `
+                        <div class="basic-info">
+                            <img src="${e.picture.large}" alt="${e.name.first} ${e.name.last}" class="employee-profile-pic">
+                            <div class="employee-info-container">
+                                <div class="employee-name">${e.name.first} ${e.name.last}</div>
+                                <div class="employee-contact">
+                                    <p class="email">${e.email}</p>
+                                    <p class="city">${e.location.city}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="detailed-info">
+                            <div class="employee-info-container">
+                                <div class="employee-cell">${e.cell}</div>
+                                <div class="employee-address">
+                                    <p class="address">${e.location.street.number} ${e.location.street.name}, ${e.location.city}, ${e.location.state} ${e.location.postcode}</p>
+                                    <p class="birthday">Birthday: ${e.dob.date.toString().slice(5,7)}/${e.dob.date.toString().slice(8,10)}/${e.dob.date.toString().slice(0,4)}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+        `;
+        employeeProfile.innerHTML = modalContent;
+        modal.classList.remove("hidden");
+    }
 
     cardsContainer.addEventListener("click", function(e) {
-        // modal.style.display = "block";
-        modal.classList.remove("hidden");
-        
+        let employeeName = null;
+        //Obtain the Employee's Name as baseline element
+        if (e.target.classList.contains("info-container")) {
+            employeeName = e.target.children[0];
+        } else if (e.target.classList.contains("employee-name")) {
+            employeeName = e.target;
+        } else if (e.target.classList.contains("employee-contact")) {
+            employeeName = e.target.parentNode.children[0];
+        } else if (e.target.classList.contains("email") || e.target.classList.contains("city")) {
+            employeeName = e.target.parentNode.parentNode.children[0];
+        } else if (e.target.classList.contains("profile-pic")) {
+            employeeName = e.target.parentNode.children[1].children[0];
+        }
+        //Obtain the Card Element that was Clicked and get its index
+        let cardClicked = employeeName.parentNode.parentNode.parentNode;
+        let cardsContainer = cardClicked.parentNode;
+        let cardIndex = Array.from(cardsContainer.children).indexOf(cardClicked);
 
-    });*/
+        showModal(employees[cardIndex]);
+    });
+
+    closeButton.addEventListener("click", function() {
+        hideModal();
+    });
 
 });
