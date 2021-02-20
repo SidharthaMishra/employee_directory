@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     "use strict";
 
-    //Vars
+    //----------------------------------------------------//
+    //                  Vars                              //
+    //----------------------------------------------------//
     const cardsContainer = document.querySelector(".employees-container");
     const employeeDataURL = "https://randomuser.me/api/?results=12&inc=name,email,city,location,cell,dob,picture&nat=us,gb,ca,fr,au,br,nz,es&noinfo";
     let employees = [];
@@ -9,7 +11,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const modal = document.querySelector(".modal");
     const closeButton = modal.querySelector(".close");
     let cardIndex = 0;
-    //Functions
+
+    //----------------------------------------------------//
+    //                  Functions                         //
+    //----------------------------------------------------//
     function getData(url) {
         return fetch(url)
             .then(response => {
@@ -65,23 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    //---------------//
-
-    getData(employeeDataURL)
-        .then(employeesData => employeesData.results
-            .forEach(employee => {
-                employees.push(employee);
-            })
-        )
-        .then(() => { displayEmployeeData(employees); });
-
-    search.addEventListener("input", function(e) {
-        searchUser(e.target.value);
-    });
-
-
-
-
     function hideModal() {
         let employeeProfile = modal.querySelector(".employee-profile");
         employeeProfile.innerHTML = ` `;
@@ -117,6 +105,42 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.classList.remove("hidden");
     }
 
+    function decrCardIndex() {
+        if (cardIndex <= 0) {
+            cardIndex = employees.length - 1;
+        } else {
+            cardIndex--;
+        }
+    }
+
+    function incrCardIndex() {
+        if (cardIndex < employees.length - 1) {
+            cardIndex++;
+        } else {
+            cardIndex = 0;
+        }
+    }
+
+    //----------------------------------------------------//
+    //                  Fetch Data                        //
+    //----------------------------------------------------//
+
+    getData(employeeDataURL)
+        .then(employeesData => employeesData.results
+            .forEach(employee => {
+                employees.push(employee);
+            })
+        )
+        .then(() => { displayEmployeeData(employees); });
+
+    //----------------------------------------------------//
+    //                  Event Listeners                   //
+    //----------------------------------------------------//
+
+    search.addEventListener("input", function(e) {
+        searchUser(e.target.value);
+    });
+
     cardsContainer.addEventListener("click", function(e) {
         let employeeName = null;
         //Obtain the Employee's Name as baseline element
@@ -148,19 +172,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 hideModal();
             } else if (e.key === 'ArrowRight') {
                 hideModal();
-                if (cardIndex < employees.length - 1) {
-                    cardIndex++;
-                } else {
-                    cardIndex = 0;
-                }
+                incrCardIndex();
                 showModal(employees[cardIndex]);
             } else if (e.key === 'ArrowLeft') {
                 hideModal();
-                if (cardIndex <= 0) {
-                    cardIndex = employees.length - 1;
-                } else {
-                    cardIndex--;
-                }
+                decrCardIndex();
                 showModal(employees[cardIndex]);
             }
         }
