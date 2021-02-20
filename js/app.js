@@ -69,6 +69,24 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     }
+    //Function accepts a click event object and returns the Name of the Employee whose card was clicked
+    function getCurEmployeeName(e) {
+        if (e.target.classList.contains("info-container")) {
+            return e.target.children[0];
+        } else if (e.target.classList.contains("employee-name")) {
+            return e.target;
+        } else if (e.target.classList.contains("employee-contact")) {
+            return e.target.parentNode.children[0];
+        } else if (e.target.classList.contains("email") || e.target.classList.contains("city")) {
+            return e.target.parentNode.parentNode.children[0];
+        } else if (e.target.classList.contains("profile-pic")) {
+            return e.target.parentNode.children[1].children[0];
+        }
+    }
+    //Function accepts the employee's name element and returns the ancestor card element
+    function getCurEmployeeCard(employeeName) {
+        return employeeName.parentNode.parentNode.parentNode;
+    }
 
     function hideModal() {
         let employeeProfile = modal.querySelector(".employee-profile");
@@ -121,6 +139,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    function nextEmployeeProfile() {
+        hideModal();
+        incrCardIndex();
+        showModal(employees[cardIndex]);
+    }
+
+    function prevEmployeeProfile() {
+        hideModal();
+        decrCardIndex();
+        showModal(employees[cardIndex]);
+    }
+
     //----------------------------------------------------//
     //                  Fetch Data                        //
     //----------------------------------------------------//
@@ -142,23 +172,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     cardsContainer.addEventListener("click", function(e) {
-        let employeeName = null;
         //Obtain the Employee's Name as baseline element
-        if (e.target.classList.contains("info-container")) {
-            employeeName = e.target.children[0];
-        } else if (e.target.classList.contains("employee-name")) {
-            employeeName = e.target;
-        } else if (e.target.classList.contains("employee-contact")) {
-            employeeName = e.target.parentNode.children[0];
-        } else if (e.target.classList.contains("email") || e.target.classList.contains("city")) {
-            employeeName = e.target.parentNode.parentNode.children[0];
-        } else if (e.target.classList.contains("profile-pic")) {
-            employeeName = e.target.parentNode.children[1].children[0];
-        }
+        const employeeName = getCurEmployeeName(e);
         //Obtain the Card Element that was Clicked and get its index
-        const cardClicked = employeeName.parentNode.parentNode.parentNode;
+        const cardClicked = getCurEmployeeCard(employeeName);
         cardIndex = Array.from(cardsContainer.children).indexOf(cardClicked);
-
         showModal(employees[cardIndex]);
     });
 
@@ -171,13 +189,9 @@ document.addEventListener("DOMContentLoaded", function() {
             if (e.key === 'Escape') {
                 hideModal();
             } else if (e.key === 'ArrowRight') {
-                hideModal();
-                incrCardIndex();
-                showModal(employees[cardIndex]);
+                nextEmployeeProfile();
             } else if (e.key === 'ArrowLeft') {
-                hideModal();
-                decrCardIndex();
-                showModal(employees[cardIndex]);
+                prevEmployeeProfile();
             }
         }
     });
