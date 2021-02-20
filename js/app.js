@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const employeeDataURL = "https://randomuser.me/api/?results=12&inc=name,email,city,location,cell,dob,picture&nat=us,gb,ca,fr,au,br,nz,es&noinfo";
     let employees = [];
     const search = document.querySelector("#search-user");
+    const modal = document.querySelector(".modal");
+    const closeButton = modal.querySelector(".close");
 
     //Functions
     function getData(url) {
@@ -78,8 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-    const modal = document.querySelector(".modal");
-    const closeButton = modal.querySelector(".close");
+
 
     function hideModal() {
         let employeeProfile = modal.querySelector(".employee-profile");
@@ -140,6 +141,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     closeButton.addEventListener("click", function() {
         hideModal();
+    });
+
+    document.addEventListener("keyup", function(e) {
+        if (!modal.classList.contains("hidden") && e.key === 'Escape') {
+            hideModal();
+        }
     });
 
 });
