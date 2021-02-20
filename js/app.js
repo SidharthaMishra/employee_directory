@@ -132,9 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
             employeeName = e.target.parentNode.children[1].children[0];
         }
         //Obtain the Card Element that was Clicked and get its index
-        let cardClicked = employeeName.parentNode.parentNode.parentNode;
-        let cardsContainer = cardClicked.parentNode;
-        let cardIndex = Array.from(cardsContainer.children).indexOf(cardClicked);
+        const cardClicked = employeeName.parentNode.parentNode.parentNode;
+        const cardIndex = Array.from(cardsContainer.children).indexOf(cardClicked);
 
         showModal(employees[cardIndex]);
     });
