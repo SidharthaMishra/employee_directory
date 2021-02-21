@@ -467,7 +467,8 @@ main {
 }
 
 .info-container {
-  flex-basis: 75%;
+  width: 70%;
+  overflow-x: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -476,8 +477,8 @@ main {
 
 .profile-pic {
   display: inline-block;
-  flex-basis: 25%;
-  height: 75%;
+  width: 30%;
+  height: 80%;
   border-radius: 50%;
   margin-right: 0.625rem;
 }
@@ -491,10 +492,6 @@ main {
 .employee-name {
   font-weight: 700;
   font-size: 1.2rem;
-}
-
-.employee-contact {
-  overflow: auto;
 }
 
 .email,

@@ -27,14 +27,15 @@
 }
 
 .info-container {
-    flex-basis: 75%;
+    width: 70%;
+    overflow-x: auto;
     @include flexbox(column, center, flex-start);
 }
 
 .profile-pic {
     display: inline-block;
-    flex-basis: 25%;
-    height: 75%;
+    width: 30%;
+    height: 80%;
     border-radius: 50%;
     margin-right: 0.625rem;
     @media (max-width: $screen-xs) {
@@ -48,9 +49,7 @@
     font-size: 1.2rem;
 }
 
-.employee-contact {
-    overflow: auto;
-}
+.card-content {}
 
 .email,
 .city {
