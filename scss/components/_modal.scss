@@ -38,6 +38,18 @@
         height: 5%;
     }
     
+    .row:nth-of-type(2n) {
+        @include flexbox(row, center, center);
+        height: 100%;
+        width: 100%;
+    }
+    
+    [class*="-arrow"] {
+        display: inline-block;
+        color: $secondary-font-color;
+        font-size: 2rem;
+    }
+    
     .employee-profile {
         height: 95%;
         width: 100%;

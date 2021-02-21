@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const search = document.querySelector("#search-user");
     const modal = document.querySelector(".modal");
     const closeButton = modal.querySelector(".close");
+    const backArrow = modal.querySelector(".back-arrow");
+    const nextArrow = modal.querySelector(".next-arrow");
     let cardIndex = 0;
 
     //----------------------------------------------------//
@@ -182,6 +184,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     closeButton.addEventListener("click", function() {
         hideModal();
+    });
+
+    backArrow.addEventListener("click", function() {
+        nextEmployeeProfile();
+    });
+
+    nextArrow.addEventListener("click", function() {
+        prevEmployeeProfile();
     });
 
     document.addEventListener("keyup", function(e) {
