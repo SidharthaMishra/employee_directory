@@ -63,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (employeeCards.length > 0) {
             //Convert NodeList=>Array then call forEach
             [...employeeCards].forEach(card => {
-                if (!(card.children[1].children[0].innerText.toLowerCase().includes(name.toLowerCase()))) {
+                let curEmplName = card.children[0].children[1].children[0].innerText;
+                if (!(curEmplName.toLowerCase().includes(name.toLowerCase()))) {
                     card.style.display = "none";
                 } else {
                     card.style.display = "";
@@ -170,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //----------------------------------------------------//
 
     search.addEventListener("input", function(e) {
-        searchUser(e.target.value);
+        searchUser(e.target.value.toString());
     });
 
     cardsContainer.addEventListener("click", function(e) {
