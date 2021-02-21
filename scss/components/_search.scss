@@ -8,6 +8,10 @@
     @media(min-width: $screen-lg) {
         text-align: right;
     }
+    @media(min-width:$screen-xl) {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 #search-user {

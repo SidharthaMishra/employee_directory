@@ -407,6 +407,12 @@ main {
     text-align: right;
   }
 }
+@media (min-width: 1200px) {
+  .search {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 
 #search-user {
   height: 100%;
@@ -485,6 +491,10 @@ main {
 .employee-name {
   font-weight: 700;
   font-size: 1.2rem;
+}
+
+.employee-contact {
+  overflow: auto;
 }
 
 .email,
