@@ -39,6 +39,7 @@ _Employee Modal Screenshot_
 - HTML
 - Sass/CSS
 - JS
+- Fetch API
 - Random User Generator API (randomuser.me)
 - JSON
 - Chrome Dev Tools
